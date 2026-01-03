@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sistem Absensi Mahasiswa</title>
+  <meta name="description" content="Aplikasi absensi mahasiswa berbasis HTML, CSS, dan JavaScript">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <h1>Sistem Absensi Mahasiswa</h1>
+  <!-- <p>Pemrograman Web 1</p> -->
+</header>
+
+<main class="container">
+
+  <!-- SECTION MAHASISWA -->
+  <section class="card">
+    <h2>Data Mahasiswa</h2>
+    <form id="formMahasiswa">
+      <label for="nim">NIM</label>
+      <input type="text" id="nim" placeholder="NIM" required>
+
+      <label for="nama">Nama Mahasiswa</label>
+      <input type="text" id="nama" placeholder="Nama Mahasiswa" required>
+
+      <label for="jurusan">Jurusan</label>
+      <input type="text" id="jurusan" placeholder="Jurusan" required>
+
+      <button type="submit">Tambah Mahasiswa</button>
+    </form>
+
+    <h3>Daftar Mahasiswa</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>NIM</th>
+          <th>Nama</th>
+          <th>Jurusan</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="mahasiswaBody"></tbody>
+    </table>
+  </section>
+
+  <!-- SECTION ABSENSI -->
+  <section class="card">
+    <h2>Input Absensi</h2>
+    <form id="formAbsensi">
+      <select id="mahasiswaSelect" required></select>
+      <input type="date" id="tanggal" required>
+      <select id="status" required>
+        <option value="Hadir">Hadir</option>
+        <option value="Izin">Izin</option>
+        <option value="Alpha">Alpha</option>
+      </select>
+      <button type="submit">Simpan Absensi</button>
+    </form>
+  </section>
+
+  <!-- SECTION REKAP -->
+  <section class="card">
+    <h2>Rekap Absensi</h2>
+    <div class="rekap-actions">
+      <input type="search" id="searchInput" placeholder="Cari nama atau NIM">
+      <input type="date" id="startDate">
+      <input type="date" id="endDate">
+      <button id="filterBtn">Filter</button>
+      <button id="clearFilter">Clear</button>
+      <button id="exportCsv">Export CSV</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Nama</th>
+          <th>Tanggal</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="rekapBody"></tbody>
+    </table>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>&copy; 2025 - Sistem Absensi Mahasiswa</p>
+</footer>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
+
+<div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
